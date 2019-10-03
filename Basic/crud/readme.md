@@ -3,3 +3,4 @@ index.php
 add.php
 update.php
 delete.php
+db.php
