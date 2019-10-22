@@ -1,5 +1,7 @@
 <?php
-include './templates/header.php';?>
+include './templates/header.php';
+include 'config/db_connect.php';
+?>
 <?php
 //create an errors array that gets updated along the line .thus the need for empty array at the initial start.
 $title = $email = $ingredients = '';
@@ -51,10 +53,26 @@ if (isset($_POST['submit'])) {
     if (array_filter($errors)) {
         //do nothing since there is something handling it already.
     } else {
-        //happens only if there is no error
-        header('location: index.php');
-    }
+        //just like htmlspecialchar .. we have something to prepare us for sql injection
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $title = mysqli_real_escape_string($conn, $_POST['title']);
+        $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
 
+        //create sql 
+        $sql = "INSERT INTO pizzas(title,email,ingredients) VALUES('$title','$email','$ingredients')";
+
+        //save to db and check if it works
+        if (mysqli_query($conn, $sql)) {
+            //success
+            header('location: index.php');
+        } else {
+            //error
+            echo "Query Error:" . mysqli_error($conn);
+        }
+        //happens only if there is no error
+
+
+    }
 } // end of POST check however this doesnt check to see if it is a correct email format or ingredient seperated by commas.
 ?>
 <section class="container green-text">
@@ -78,7 +96,7 @@ if (isset($_POST['submit'])) {
             <?php echo $errors['ingredients']; ?>
         </div>
         <div class="center">
-        <button type="submit" class="btn brand z-depth-0" name="submit" value="submit">Submit</button>
+            <button type="submit" class="btn brand z-depth-0" name="submit" value="submit">Submit</button>
         </div>
     </form>
 </section>
