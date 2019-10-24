@@ -1,10 +1,6 @@
-<html>
-
-<?php foreach ($items as $item) : ?>
-
-    <h1><?php echo $item['title']; ?></h1>
-
-
-<?php endforeach; ?>
-
-</html>
+<?php
+    class Elias extends dowex {
+        function eliastwo () {
+            
+        }
+    }

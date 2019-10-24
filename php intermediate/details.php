@@ -1,7 +1,18 @@
 <?php
 //check GET request id paramater
 include 'config/db_connect.php';
+if (isset($_POST['delete'])) {
 
+    $id_delete = mysqli_real_escape_string($conn, $_POST['id_delete']);
+    $sql = "DELETE FROM pizzas WHERE id = $id_delete";
+    if (mysqli_query($conn, $sql)) {
+        //successful
+        header('location: index.php');
+    } {
+        //failure
+        echo 'query error:' . mysqli_error($conn);
+    }
+}
 if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
     //make sql
@@ -25,6 +36,12 @@ include 'templates/header.php';
         <p> <?php echo date($pizza['created_at']); ?></p>
         <h5>Ingredients:</h5>
         <p><?php echo htmlspecialchars($pizza['ingredients']); ?></p>
+        <!--DELETE FORM -->
+        <form action="details.php" method="POST">
+            <input type="hidden" name="id_delete" value="<?php echo $pizza['id']; ?>">
+            <input type="submit" name="delete" value="Delete" class="btn brand z-depth-0">
+        </form>
+
     <?php else : ?>
         <h5>No such pizza In our database</h5>
     <?php endif; ?>

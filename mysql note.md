@@ -1,5 +1,15 @@
-Mysql is a RDMS (Relational database management system relational with the help of foreign key)
-We use SQL to communicate with the DB from PHP like create ,delete ,update and read from db
-SQL = structured query Languege
+connect tothe, data, first
+create config folder inside intermediate folder.
+inside config folder create db_connect.php
+go into our db_connect
+we have three steps to fetching data
 
-each row represented an individual record .
+construct the query
+we make the query
+we fetch result from the query
+
+24/10/2019
+Null coalescene
+session
+cookies
+file system

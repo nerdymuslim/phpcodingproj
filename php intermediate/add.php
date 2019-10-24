@@ -35,6 +35,7 @@ if (isset($_POST['submit'])) {
         $errors['title'] = "A title is required <br/>";
     } else {
         //preg_match is used to match regex patterns with the intended result. The regex says i am starting (we use ^ to start and  +$ to end as well)  and just like less than sign we have forward  slash to enclose it and must be in quote.\s is used to denote any space any length.! is used because we need it only when it is false.
+        //regex
         if (!preg_match('/^[a-zA-Z\s]+$/', $title)) {
             $errors['title'] = "Title must be letters and spaces only";
         }
@@ -55,6 +56,8 @@ if (isset($_POST['submit'])) {
     } else {
         //just like htmlspecialchar .. we have something to prepare us for sql injection
         $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $tb1 = mysqli_real_escape_string($conn, $_POST['tb1']);
+        $tb2 = mysqli_real_escape_string($conn,$_POST['tb2']);
         $title = mysqli_real_escape_string($conn, $_POST['title']);
         $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
 
