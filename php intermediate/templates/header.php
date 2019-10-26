@@ -21,7 +21,7 @@ $gender = $_COOKIE['gender'] ?? 'Unknown';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/materialize.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>Naija Pizza</title>
+    <title>Naira Pizza</title>
 </head>
 
 <body class="grey lighten-4">

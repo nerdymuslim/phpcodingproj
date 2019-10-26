@@ -39,7 +39,7 @@ include "templates/header.php";
                         <ul>
                             <?php foreach (explode(',', $pizza['ingredients']) as $ing) : ?>
                                 <li><?php echo htmlspecialchars($ing); ?></li>
-                            <?php endforeach; //endforeach better  
+                            <?php endforeach; //endforeach better 
                                 ?>
                         </ul>
 
@@ -57,4 +57,4 @@ include "templates/header.php";
     </div>
 </div>
 <?php
-include "templates/footer.php";
+require "templates/footer.php";
