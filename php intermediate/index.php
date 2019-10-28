@@ -7,7 +7,7 @@ $sql = 'SELECT title,ingredients,id FROM pizzas ORDER BY created_at';
 //make query and get result
 $result = mysqli_query($conn, $sql);
 //fetch the resulting rows as an array. They are not automatically in array form
-//$result isnt in the format we can use . 
+//$result isn't in the format we can use . 
 
 //MYsql_assoc makes it an associative array . Fetch all the result into an array
 $pizzas = mysqli_fetch_all($result, MYSQLI_ASSOC);

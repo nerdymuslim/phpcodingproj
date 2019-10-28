@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
         //just like htmlspecialchar .. we have something to prepare us for sql injection
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $tb1 = mysqli_real_escape_string($conn, $_POST['tb1']);
-        $tb2 = mysqli_real_escape_string($conn,$_POST['tb2']);
+        $tb2 = mysqli_real_escape_string($conn, $_POST['tb2']);
         $title = mysqli_real_escape_string($conn, $_POST['title']);
         $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
 
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 
 
     }
-} // end of POST check however this doesnt check to see if it is a correct email format or ingredient seperated by commas.
+} // end of POST check however this doesn't check to see if it is a correct email format or ingredient separated by commas.
 ?>
 <section class="container green-text">
     <h4 class="center">Add a Pizza</h4>
@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
         <div class="red-text">
             <?php echo $errors['title']; ?>
         </div>
-        <label for="">Ingredients (comma Seperated):</label>
+        <label for="">Ingredients (comma Separated):</label>
         <input type="text" name="ingredients" placeholder="Your Ingredients" value="<?php echo htmlspecialchars($ingredients); ?>" required>
         <div class="red-text">
             <?php echo $errors['ingredients']; ?>

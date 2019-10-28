@@ -1,5 +1,5 @@
 <?php
-//check GET request id paramater
+//check GET request id parameter
 include 'config/db_connect.php';
 if (isset($_POST['delete'])) {
 
